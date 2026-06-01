@@ -1,0 +1,7 @@
+{
+  "case_name": "multiple_faces",
+  "description": "More than one face detected in frame",
+  "input": "multiple_faces_001.jpg",
+  "expected_decision": "deny",
+  "expected_reason": "multiple_faces_detected"
+}

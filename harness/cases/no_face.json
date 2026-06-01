@@ -1,0 +1,7 @@
+{
+  "case_name": "no_face",
+  "description": "No face detected in image",
+  "input": "no_face_001.jpg",
+  "expected_decision": "deny",
+  "expected_reason": "face_not_detected"
+}

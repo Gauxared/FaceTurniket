@@ -1,0 +1,9 @@
+{
+  "case_name": "no_acceptable_frame",
+  "description": "Series with no acceptable frames: no face and multiple faces",
+  "input": ["no_face_001.jpg", "multiple_faces_002.jpg"],
+  "expected_decision": "deny",
+  "expected_reason": "multiple_faces_detected",
+  "expected_turnstile_command": "keep_closed",
+  "expected_selected_frame": null
+}

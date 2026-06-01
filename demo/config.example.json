@@ -1,0 +1,21 @@
+{
+  "provider": "mock",
+  "thresholds": {
+    "verification_threshold": 0.7,
+    "identification_threshold": 0.7,
+    "quality_threshold": 0.7
+  },
+  "demo_user": {
+    "user_id": "demo_user_001",
+    "display_name": "Demo Presenter",
+    "access_allowed": true,
+    "enroll_images": [
+      "allowed_user/enroll_01.jpg",
+      "allowed_user/enroll_02.jpg"
+    ],
+    "pass_photo": "allowed_user/pass_photo.jpg",
+    "pass_video": "allowed_user/pass_video.mp4",
+    "denied_photo": "denied_user/unknown_photo.jpg",
+    "low_quality_photo": "low_quality/bad_photo.jpg"
+  }
+}

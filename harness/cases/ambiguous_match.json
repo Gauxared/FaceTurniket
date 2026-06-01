@@ -1,0 +1,7 @@
+{
+  "case_name": "ambiguous_match",
+  "description": "Match is ambiguous, requires manual check",
+  "input": "user_003_ambiguous.jpg",
+  "expected_decision": "manual_check",
+  "expected_reason": "ambiguous_match"
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Система доступа по лицу</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Система доступа по лицу</h1>
+            <div class="health-status">
+                <span id="health-status" class="status-indicator">●</span>
+                <span id="provider-info">Загрузка...</span>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="recognition">Распознавание</button>
+            <button class="tab-btn" data-tab="video">Видео</button>
+            <button class="tab-btn" data-tab="enroll">Регистрация</button>
+            <button class="tab-btn" data-tab="users">Пользователи</button>
+            <button class="tab-btn" data-tab="events">События</button>
+        </nav>
+
+        <main class="content">
+            <section id="recognition" class="tab-content active">
+                <div class="card">
+                    <h2>Распознавание по фото</h2>
+                    <div class="upload-area" id="recognition-upload">
+                        <div class="upload-icon">📷</div>
+                        <p>Перетащите изображение сюда или нажмите для загрузки</p>
+                        <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div id="recognition-container" style="display: none;">
+                        <div class="row">
+                            <div class="col">
+                                <h3>Изображение</h3>
+                                <img id="recognition-image" src="" alt="Результат распознавания" class="result-image">
+                            </div>
+                            <div class="col">
+                                <h3>Анализ</h3>
+                                <div id="recognition-results" class="results"></div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <h3>Качество кадра</h3>
+                            <div id="quality-details" class="quality-details"></div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <h3>Решение</h3>
+                            <div id="decision-box" class="decision-box"></div>
+                        </div>
+                    </div>
+
+                    <div id="recognition-mode">
+                        <label>
+                            <input type="radio" name="mode" value="1toN" checked> 1:N идентификация
+                        </label>
+                        <label>
+                            <input type="radio" name="mode" value="1to1"> 1:1 верификация
+                        </label>
+                        <input type="text" id="claimed-user-id" placeholder="Внутренний ID пользователя (для 1:1)" style="display: none; margin-top: 10px;">
+                    </div>
+                </div>
+            </section>
+
+            <section id="video" class="tab-content">
+                <div class="card">
+                    <h2>Распознавание видео</h2>
+                    <div class="upload-area" id="video-upload">
+                        <div class="upload-icon">🎥</div>
+                        <p>Перетащите видео сюда или нажмите для загрузки</p>
+                        <input type="file" id="video-input" accept="video/*" style="display: none;">
+                    </div>
+
+                    <div id="video-container" style="display: none;">
+                        <div class="row">
+                            <h3>Лента кадров</h3>
+                            <img id="timeline-image" src="" alt="Лента кадров" class="timeline-image">
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <h3>Кадры</h3>
+                            <div id="frame-details" class="frame-details">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Кадр</th>
+                                            <th>Качество</th>
+                                            <th>Лицо</th>
+                                            <th>Статус</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="frame-table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <h3>Лучший кадр</h3>
+                            <div id="video-results" class="results"></div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <h3>Итоговое решение</h3>
+                            <div id="video-decision-box" class="decision-box"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="enroll" class="tab-content">
+                <div class="card">
+                    <h2>Регистрация пользователя</h2>
+                    <div class="form-group">
+                        <label for="enroll-full-name">ФИО пользователя:</label>
+                        <input type="text" id="enroll-full-name" placeholder="например, Иванов Иван Иванович">
+                    </div>
+                    <div class="upload-area" id="enroll-upload">
+                        <div class="upload-icon">🖼️</div>
+                        <p>Перетащите фото сюда или нажмите для загрузки (можно выбрать несколько)</p>
+                        <input type="file" id="enroll-image-input" accept="image/*" multiple style="display: none;">
+                    </div>
+                    <div id="enroll-preview-list" class="enroll-preview-list" style="display: none;"></div>
+                    <button id="enroll-btn" class="btn btn-primary" disabled>Зарегистрировать по фото</button>
+
+                    <div class="upload-area" id="enroll-video-upload" style="margin-top: 16px;">
+                        <div class="upload-icon">🎬</div>
+                        <p>Перетащите видео регистрации сюда или нажмите для загрузки</p>
+                        <input type="file" id="enroll-video-input" accept="video/*" style="display: none;">
+                    </div>
+                    <button id="enroll-video-btn" class="btn btn-secondary" disabled>Зарегистрировать по видео</button>
+
+                    <div id="enroll-result" style="display: none; margin-top: 20px;">
+                        <div id="enroll-status" class="alert"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="users" class="tab-content">
+                <div class="card">
+                    <h2>Зарегистрированные пользователи</h2>
+                    <div id="users-list" class="users-list"></div>
+                </div>
+            </section>
+
+            <section id="events" class="tab-content">
+                <div class="card">
+                    <h2>Последние события</h2>
+                    <div class="controls">
+                        <button id="refresh-events" class="btn btn-secondary">Обновить</button>
+                        <button id="export-events" class="btn btn-secondary">Экспорт CSV</button>
+                    </div>
+                    <div id="events-list" class="events-list"></div>
+                </div>
+            </section>
+        </main>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Обработка...</p>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

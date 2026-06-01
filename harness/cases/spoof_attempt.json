@@ -1,0 +1,7 @@
+{
+  "case_name": "spoof_attempt",
+  "description": "Liveness check failed, possible spoof",
+  "input": "spoof_001.jpg",
+  "expected_decision": "deny",
+  "expected_reason_prefix": "liveness_failed"
+}

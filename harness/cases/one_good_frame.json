@@ -1,0 +1,9 @@
+{
+  "case_name": "one_good_frame",
+  "description": "One good frame among bad frames is selected",
+  "input": ["low_quality_001.jpg", "no_face_001.jpg", "user_002_good.jpg", "spoof_001.jpg", "low_quality_002.jpg"],
+  "expected_decision": "allow",
+  "expected_reason": "user_matched_and_access_allowed",
+  "expected_turnstile_command": "open",
+  "expected_selected_frame": "user_002_good.jpg"
+}

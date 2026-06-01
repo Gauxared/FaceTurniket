@@ -1,0 +1,10 @@
+{
+  "case_name": "1to1_verification_success",
+  "description": "1:1 verification: claimed user matches the face",
+  "input": "user_001_good.jpg",
+  "mode": "1to1",
+  "claimed_user_id": "user_001",
+  "expected_decision": "allow",
+  "expected_reason": "user_matched_and_access_allowed",
+  "expected_turnstile_command": "open"
+}

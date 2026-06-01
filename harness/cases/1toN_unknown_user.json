@@ -1,0 +1,9 @@
+{
+  "case_name": "1toN_unknown_user",
+  "description": "1:N identification: user not in template store",
+  "input": "unknown_001.jpg",
+  "mode": "1toN",
+  "expected_decision": "deny",
+  "expected_reason": "user_not_found",
+  "expected_turnstile_command": "keep_closed"
+}

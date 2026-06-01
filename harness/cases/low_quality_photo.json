@@ -1,0 +1,7 @@
+{
+  "case_name": "low_quality_photo",
+  "description": "Photo is too blurry or poorly lit",
+  "input": "low_quality_001.jpg",
+  "expected_decision": "retry",
+  "expected_reason_prefix": "quality_not_acceptable"
+}

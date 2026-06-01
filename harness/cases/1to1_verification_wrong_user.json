@@ -1,0 +1,10 @@
+{
+  "case_name": "1to1_verification_wrong_user",
+  "description": "1:1 verification: claimed user does not match the face",
+  "input": "user_002_good.jpg",
+  "mode": "1to1",
+  "claimed_user_id": "user_001",
+  "expected_decision": "deny",
+  "expected_reason_prefix": "similarity_below_threshold",
+  "expected_turnstile_command": "keep_closed"
+}

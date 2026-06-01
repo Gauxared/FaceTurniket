@@ -1,0 +1,7 @@
+{
+  "case_name": "unknown_user_denied",
+  "description": "Unknown user not in database",
+  "input": "unknown_001.jpg",
+  "expected_decision": "deny",
+  "expected_reason": "user_not_found"
+}

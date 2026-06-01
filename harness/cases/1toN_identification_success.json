@@ -1,0 +1,9 @@
+{
+  "case_name": "1toN_identification_success",
+  "description": "1:N identification: user found in template store",
+  "input": "user_001_good.jpg",
+  "mode": "1toN",
+  "expected_decision": "allow",
+  "expected_reason": "user_matched_and_access_allowed",
+  "expected_turnstile_command": "open"
+}

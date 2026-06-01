@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# pytest
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local reports/logs
+*.log
+reports/
+output/
+demo/local/
+reports/demo_report.json
+reports/demo_events.jsonl
+
+# Local environment files
+.env
+.env.local
+
+# Real user images and biometric data
+real_images/
+biometric_data/
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Datasets
+datasets/
+
+# Git
+.git/

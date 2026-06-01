@@ -1,0 +1,7 @@
+{
+  "case_name": "low_similarity",
+  "description": "Face matched but similarity below threshold",
+  "input": "user_002_low_sim.jpg",
+  "expected_decision": "deny",
+  "expected_reason_prefix": "similarity_below_threshold"
+}

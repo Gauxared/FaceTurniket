@@ -1,0 +1,7 @@
+{
+  "case_name": "user_without_access",
+  "description": "Matched user does not have access rights",
+  "input": "user_999_good.jpg",
+  "expected_decision": "deny",
+  "expected_reason": "user_not_allowed"
+}

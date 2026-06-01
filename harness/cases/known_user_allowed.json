@@ -1,0 +1,7 @@
+{
+  "case_name": "known_user_allowed",
+  "description": "Known user with good photo and access rights",
+  "input": "user_001_good.jpg",
+  "expected_decision": "allow",
+  "expected_reason": "user_matched_and_access_allowed"
+}
