@@ -1,96 +1,41 @@
-# Task 015 - Diploma Alignment and Final Demo
+# Task 015 - Diploma Alignment and Final Demo (parent task)
 
-## Goal
+## Purpose
 
-Align the project with the practice report and prepare the final defense-ready
-demonstration.
+This is a parent task only. Do **not** execute it as one large iteration.
 
-The final story should be:
+The work is intentionally split into small context-friendly tasks so a local model can complete one task per fresh context window.
 
-```text
-The system replaces a simple card/pass workflow with biometric identification
-in a controlled access point, while keeping fallback handling for exceptions.
-```
+## Execution order
 
-## Required
+1. `tasks/015a_project_narrative_alignment.md`
+2. `tasks/015b_readme_final_flow.md`
+3. `tasks/015c_defense_demo_script.md`
+4. `tasks/015d_stale_demo_docs_cleanup.md`
+5. `tasks/015e_limitations_consistency.md`
+6. `tasks/015f_final_validation.md`
 
-1. Update project documentation from the practice report.
+## Shared outcome
 
-Make sure docs clearly describe:
+After all six child tasks are complete:
 
-- university access-control context;
-- users: students, employees, guards, admins, visitors;
-- problem with physical passes;
-- biometric identification as the main MVP flow;
-- fallback handling through guard/manual check;
-- consent and biometric-data constraints;
-- event logging and auditability;
-- mock turnstile for prototype stage.
+- project docs describe the university access-control context consistently;
+- README contains the final launch/demo flow;
+- defense script uses the normal product flow;
+- stale recommendations for the old detached Demo flow are removed or clearly marked historical;
+- limitations and fallback/manual-check handling are explicit;
+- `scripts/check.ps1` passes;
+- `docs/CURRENT_STATE.md` points to the next real development task.
 
-2. Update README with final launch flow:
+## Shared constraints
 
-- run checks;
-- start web UI;
-- enroll user from photo;
-- enroll user from video;
-- recognize photo/video;
-- view events.
-
-3. Create or update final defense script:
-
-Suggested file:
-
-```text
-docs/DEFENSE_DEMO_SCRIPT.md
-```
-
-The script must show normal product flow, not a special demo endpoint:
-
-1. Start server.
-2. Open web UI.
-3. Enroll user from video.
-4. Show created templates.
-5. Run recognition on a pass photo/video.
-6. Show `allow/open`.
-7. Run unknown or low-quality example.
-8. Show `deny/retry/keep_closed`.
-9. Show event log.
-10. Explain limitations and next steps.
-
-4. Remove stale docs that claim the old detached Demo tab is the preferred path.
-
-5. Add final limitations section:
-
-- no physical turnstile in prototype;
-- no production database yet;
-- liveness is limited or mocked unless a real provider is added;
-- controlled capture is required;
-- real deployment requires consent, security controls, and calibration.
-
-## Forbidden
-
-- Do not claim the system is production-ready.
+- Do not claim production readiness.
 - Do not claim perfect recognition in uncontrolled conditions.
-- Do not present mock provider as real ML.
+- Do not present the mock provider as real ML.
 - Do not hide limitations.
-- Do not include private personal photos in repo.
+- Do not add private photos, personal data, or biometric embeddings.
+- Do not implement unrelated features while completing these documentation tasks.
 
-## Tests
+## Context rule
 
-No large new code should be needed, but run:
-
-```powershell
-scripts/check.ps1
-```
-
-If final docs reference commands, verify commands still work.
-
-## Done Criteria
-
-- Documentation matches the practice report.
-- Final demo script exists.
-- README has concise final workflow.
-- No stale recommendation to use artificial Demo tab.
-- `scripts/check.ps1` passes.
-- `docs/CURRENT_STATE.md` is updated.
-
+Never load all six child tasks at once. Start a fresh agent context for each child task and stop after its handoff is written.
